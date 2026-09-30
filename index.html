@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Automation Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #message {
+            margin-top: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .warning {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Browser Automation Demonstration</h1>
+        <p>
+            This example simulates how a browser or an AI agent could programmatically 
+            interact with a webpage, such as clicking a 'Buy Now' button, without direct 
+            user intervention. Observe the message below.
+        </p>
+        <button id="buyButton">Buy Now (Click Me Manually)</button>
+        <div id="message">Waiting for action...</div>
+    </div>
+
+    <script>
+        const buyButton = document.getElementById('buyButton');
+        const messageDiv = document.getElementById('message');
+
+        // Simulate a manual click
+        buyButton.addEventListener('click', () => {
+            messageDiv.textContent = 'Manual click detected! Item added to cart.';
+            messageDiv.style.color = '#007bff';
+        });
+
+        // Simulate an automated action after a delay
+        setTimeout(() => {
+            // This is where the browser (or an agent) programmatically 'clicks' the button.
+            // The article discusses how browsers can now 'click' (interact) automatically.
+            buyButton.click(); // Programmatically trigger the click event
+            messageDiv.textContent = 'Automated action: "Buy Now" button clicked by browser!';
+            messageDiv.style.color = '#dc3545'; // Highlight as a potential risk/automation
+            console.log('Automated click triggered!');
+        }, 3000); // Trigger after 3 seconds
+
+        // You can also observe this in the browser's console.
+    </script>
+</body>
+</html>
